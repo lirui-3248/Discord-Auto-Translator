@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Discord Translator</title>
+    <link rel="stylesheet" href="ui.css">
+  </head>
+  <body class="popup-body">
+    <main class="popup-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark">DT</div>
+          <div>
+            <h1 data-i18n="extName">Discord Translator</h1>
+            <p class="subtle" id="pageStatus" data-i18n="popupChecking">Checking current page</p>
+          </div>
+        </div>
+        <span class="status" id="enabledStatus">ON</span>
+      </header>
+
+      <section class="panel popup-card compact-stack">
+        <div class="switch-row">
+          <span class="label" data-i18n="autoTranslate">Auto translate</span>
+          <input id="enabled" type="checkbox" data-i18n-aria="autoTranslate" aria-label="Auto translate">
+        </div>
+
+        <label class="field">
+          <span data-i18n="uiLanguage">Interface language</span>
+          <select id="uiLanguage"></select>
+        </label>
+
+        <label class="field">
+          <span data-i18n="provider">Translation service</span>
+          <select id="provider">
+            <option value="openai" data-i18n="providerOpenai">OpenAI</option>
+            <option value="deepl" data-i18n="providerDeepl">DeepL</option>
+            <option value="google" data-i18n="providerGoogle">Google Translate</option>
+            <option value="baidu" data-i18n="providerBaidu">Baidu Translate</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span data-i18n="targetLang">Target language</span>
+          <select id="targetLang"></select>
+        </label>
+
+        <label class="field">
+          <span data-i18n="displayMode">Display mode</span>
+          <select id="displayMode">
+            <option value="inline" data-i18n="inline">Under original</option>
+            <option value="compact" data-i18n="compact">Collapsible</option>
+            <option value="replace" data-i18n="replace">Replace original</option>
+          </select>
+        </label>
+
+        <button class="button primary" id="openOptions" type="button" data-i18n="openOptions">API settings</button>
+        <button class="button ghost" id="clearCache" type="button" data-i18n="clearCache">Clear temporary cache</button>
+      </section>
+    </main>
+    <script src="languages.js"></script>
+    <script src="i18n.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Discord Translator Settings</title>
+    <link rel="stylesheet" href="ui.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="page">
+        <header class="topbar">
+          <div class="brand">
+            <div class="mark">DT</div>
+            <div>
+              <h1 data-i18n="extName">Discord Translator</h1>
+              <p class="subtle" data-i18n="settingsSubtitle">API and language settings</p>
+            </div>
+          </div>
+          <span class="status" id="saveStatus" data-i18n="unsaved">Unsaved</span>
+        </header>
+
+        <div class="settings-grid">
+          <section class="panel">
+            <div class="section">
+              <div class="section-title">
+                <h2 data-i18n="general">General</h2>
+              </div>
+              <div class="field-grid">
+                <div class="switch-row field full">
+                  <span class="label" data-i18n="autoTranslate">Auto translate</span>
+                  <input id="enabled" type="checkbox" data-i18n-aria="autoTranslate" aria-label="Auto translate">
+                </div>
+
+                <label class="field">
+                  <span data-i18n="uiLanguage">Interface language</span>
+                  <select id="uiLanguage"></select>
+                </label>
+
+                <label class="field">
+                  <span data-i18n="provider">Translation service</span>
+                  <select id="provider">
+                    <option value="openai" data-i18n="providerOpenai">OpenAI</option>
+                    <option value="deepl" data-i18n="providerDeepl">DeepL</option>
+                    <option value="google" data-i18n="providerGoogle">Google Translate</option>
+                    <option value="baidu" data-i18n="providerBaidu">Baidu Translate</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span data-i18n="targetLang">Target language</span>
+                  <select id="targetLang"></select>
+                </label>
+
+                <label class="field">
+                  <span data-i18n="sourceLang">Source language</span>
+                  <select id="sourceLang"></select>
+                </label>
+
+                <label class="field">
+                  <span data-i18n="displayMode">Display mode</span>
+                  <select id="displayMode">
+                    <option value="inline" data-i18n="inline">Under original</option>
+                    <option value="compact" data-i18n="compact">Collapsible</option>
+                    <option value="replace" data-i18n="replace">Replace original</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span data-i18n="startupLimit">Messages to process on channel open</span>
+                  <input id="startupLimit" type="number" min="5" max="200" step="1">
+                </label>
+
+                <label class="field">
+                  <span data-i18n="concurrency">Concurrent requests</span>
+                  <input id="concurrency" type="number" min="1" max="4" step="1">
+                </label>
+
+                <label class="field full">
+                  <span data-i18n="selfName">My Discord name</span>
+                  <input id="selfName" type="text" autocomplete="off" data-i18n-placeholder="selfNamePlaceholder" placeholder="Optional">
+                </label>
+
+                <div class="switch-row field full">
+                  <span class="label" data-i18n="translateOwn">Translate my own messages</span>
+                  <input id="translateOwn" type="checkbox" data-i18n-aria="translateOwn" aria-label="Translate my own messages">
+                </div>
+
+                <div class="switch-row field full">
+                  <span class="label" data-i18n="cacheEnabled">Cache identical text temporarily</span>
+                  <input id="cacheEnabled" type="checkbox" data-i18n-aria="cacheEnabled" aria-label="Cache identical text temporarily">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="section">
+              <div class="section-title">
+                <h2 data-i18n="api">API</h2>
+              </div>
+
+              <div class="provider-panel" data-provider-panel="openai">
+                <label class="field">
+                  <span data-i18n="openaiApiKey">OpenAI API Key</span>
+                  <input id="openaiApiKey" type="password" autocomplete="off" placeholder="sk-...">
+                </label>
+                <div class="field-grid">
+                  <label class="field">
+                    <span data-i18n="model">Model</span>
+                    <input id="openaiModel" type="text" autocomplete="off">
+                  </label>
+                  <label class="field">
+                    <span data-i18n="endpoint">Endpoint</span>
+                    <input id="openaiEndpoint" type="url" autocomplete="off">
+                  </label>
+                </div>
+                <label class="field">
+                  <span data-i18n="openaiPrompt">Extra translation instructions</span>
+                  <textarea id="openaiPrompt" data-i18n-placeholder="openaiPromptPlaceholder" placeholder="Example: keep game terms and do not translate code"></textarea>
+                </label>
+              </div>
+
+              <div class="provider-panel" data-provider-panel="deepl">
+                <label class="field">
+                  <span data-i18n="deeplAuthKey">DeepL Auth Key</span>
+                  <input id="deeplApiKey" type="password" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span data-i18n="accountType">Account type</span>
+                  <select id="deeplPlan">
+                    <option value="free">Free</option>
+                    <option value="pro">Pro</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="provider-panel" data-provider-panel="google">
+                <label class="field">
+                  <span data-i18n="googleApiKey">Google Cloud Translation API Key</span>
+                  <input id="googleApiKey" type="password" autocomplete="off">
+                </label>
+              </div>
+
+              <div class="provider-panel" data-provider-panel="baidu">
+                <div class="field-grid">
+                  <label class="field">
+                    <span data-i18n="baiduAppId">Baidu APP ID</span>
+                    <input id="baiduAppId" type="text" autocomplete="off">
+                  </label>
+                  <label class="field">
+                    <span data-i18n="baiduSecretKey">Baidu Secret Key</span>
+                    <input id="baiduSecretKey" type="password" autocomplete="off">
+                  </label>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="button primary" id="save" type="button" data-i18n="save">Save</button>
+                <button class="button ghost" id="reset" type="button" data-i18n="reset">Reset defaults</button>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="section-title">
+                <h2 data-i18n="test">Test</h2>
+              </div>
+              <label class="field">
+                <span data-i18n="testText">Test text</span>
+                <textarea id="testText">Hello, can you join voice chat in five minutes?</textarea>
+              </label>
+              <div class="actions">
+                <button class="button" id="testTranslate" type="button" data-i18n="testTranslate">Test translation</button>
+              </div>
+              <div class="result-box" id="testResult"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="languages.js"></script>
+    <script src="i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

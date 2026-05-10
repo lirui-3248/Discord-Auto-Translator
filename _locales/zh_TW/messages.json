@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Discord 自動翻譯",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "自動翻譯 Discord 網頁版可見訊息，支援 OpenAI、DeepL、Google Cloud Translation 與百度翻譯。",
+    "description": "Extension description"
+  }
+}
