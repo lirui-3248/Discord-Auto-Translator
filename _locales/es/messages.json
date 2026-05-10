@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Discord Auto Translator",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Traduce automaticamente los mensajes visibles de Discord Web con OpenAI, DeepL, Google Cloud Translation o Baidu Translate.",
+    "description": "Extension description"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Discord 자동 번역",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Discord Web에 보이는 메시지를 OpenAI, DeepL, Google Cloud Translation 또는 Baidu Translate로 자동 번역합니다.",
+    "description": "Extension description"
+  }
+}
