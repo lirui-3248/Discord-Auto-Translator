@@ -11,6 +11,7 @@ Chrome Manifest V3 extension for Discord Web. It translates visible Discord mess
 - Display modes: under original, collapsible translation, replace original.
 - Temporary in-memory cache and request concurrency control.
 - No bundled API keys and no Discord private API calls.
+- Minimal permissions: local storage, active tab status for the popup, Discord Web host access, and selected translation API hosts.
 
 ## Install Locally
 

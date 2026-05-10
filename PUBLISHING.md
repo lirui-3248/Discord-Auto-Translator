@@ -5,6 +5,7 @@
 - `manifest.json` is at the ZIP root.
 - `default_locale` is set because `_locales/` is included.
 - 16, 32, 48, and 128 px icons are included in `icons/`.
+- Permissions are limited to `storage`, `activeTab`, Discord Web, and translation API hosts.
 - No API keys or private credentials are bundled.
 
 ## Store Listing
